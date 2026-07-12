@@ -21,25 +21,23 @@ document.body.classList.remove("listening");
 
 ring.style.filter="drop-shadow(0 0 15px #6a5cff)";
 };
-recognition.onresult=(event)=>{
+recognition.onresult = (event) => {
 
-const text=event.results[0][0].transcript;
+  const text = event.results[0][0].transcript;
 
-chat.innerHTML+=`<div class="user">${text}</div>`;
+  chat.innerHTML += `<div class="user">${text}</div>`;
 
-statusText.innerHTML="🤖 Thinking...";
+  statusText.innerHTML = "🤖 ZOYA is thinking...";
 
-setTimeout(()=>{
+  setTimeout(() => {
 
-chat.innerHTML+=`<div class="ai">Aapne kaha: ${text}</div>`;
+    const reply = "Aapne kaha: " + text;
 
-speak("Aapne kaha "+text);
+    chat.innerHTML += `<div class="ai">${reply}</div>`;
 
-statusText.innerHTML="✅ Ready";
+    speak(reply);
 
-},700);
-
-}
+    statusText.innerHTML = "✅ Ready";
 
 recognition.onend = () => {
   ring.style.transform = "scale(1)";
