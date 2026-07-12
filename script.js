@@ -43,7 +43,9 @@ recognition.onend = () => {
   ring.style.transform = "scale(1)";
   ring.style.boxShadow = "0 0 25px #6a5cff";
 };
+document.body.classList.remove("listening");
 
+ring.style.filter="drop-shadow(0 0 15px #6a5cff)";
 function speak(message) {
   const speech = new SpeechSynthesisUtterance(message);
 
