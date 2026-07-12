@@ -96,3 +96,59 @@ button:hover{
         transform:rotate(360deg);
     }
 }
+#status{
+    margin-top:20px;
+    color:#00d4ff;
+    font-size:18px;
+    font-weight:bold;
+}
+
+#chat{
+    width:90%;
+    max-width:400px;
+    height:220px;
+    margin:25px auto;
+    padding:15px;
+    overflow-y:auto;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    text-align:left;
+}
+
+.user{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+.ai{
+    background:#6a5cff;
+    color:white;
+    padding:12px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+.listening .ring{
+    animation:pulse .8s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+box-shadow:0 0 60px #00d4ff;
+}
+
+100%{
+transform:scale(1);
+}
+
+}
