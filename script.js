@@ -50,3 +50,49 @@ recognition.onend = () => {
   statusText.innerHTML = "✅ Ready";
 
 };
+// Speech Result
+recognition.onresult = async (event) => {
+
+  const text = event.results[0][0].transcript;
+
+  chat.innerHTML += `<div class="user">${text}</div>`;
+  chat.scrollTop = chat.scrollHeight;
+
+  statusText.innerHTML = "🤖 ZOYA is thinking...";
+
+  await askAI(text);
+
+};
+
+// Speak Function
+function speak(message) {
+
+  const speech = new SpeechSynthesisUtterance(message);
+
+  speech.lang = "hi-IN";
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  ring.animate(
+    [
+      { transform: "scale(1)" },
+      { transform: "scale(1.08)" },
+      { transform: "scale(1)" }
+    ],
+    {
+      duration: 800,
+      iterations: Infinity
+    }
+  );
+
+  speech.onend = () => {
+
+    ring.getAnimations().forEach(a => a.cancel());
+
+    statusText.innerHTML = "✅ Ready";
+
+  };
+
+  speechSynthesis.speak(speech);
+
+}
