@@ -39,6 +39,12 @@ recognition.onresult = (event) => {
 
     statusText.innerHTML = "✅ Ready";
 
+    chat.scrollTop = chat.scrollHeight;
+
+  }, 700);
+
+};
+
 recognition.onend = () => {
   ring.style.transform = "scale(1)";
   ring.style.boxShadow = "0 0 25px #6a5cff";
