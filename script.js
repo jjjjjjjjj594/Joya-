@@ -19,12 +19,25 @@ statusText.innerHTML="🎤 Listening...";
 recognition.start();
 
 };
+recognition.onresult=(event)=>{
 
-recognition.onresult = (event) => {
-  const text = event.results[0][0].transcript;
+const text=event.results[0][0].transcript;
 
-  speak("Aapne kaha " + text);
-};
+chat.innerHTML+=`<div class="user">${text}</div>`;
+
+statusText.innerHTML="🤖 Thinking...";
+
+setTimeout(()=>{
+
+chat.innerHTML+=`<div class="ai">Aapne kaha: ${text}</div>`;
+
+speak("Aapne kaha "+text);
+
+statusText.innerHTML="✅ Ready";
+
+},700);
+
+}
 
 recognition.onend = () => {
   ring.style.transform = "scale(1)";
