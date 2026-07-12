@@ -1,6 +1,6 @@
 const mic = document.getElementById("mic");
 const ring = document.querySelector(".ring");
-const OPENAI_API_KEY = AQ.Ab8RN6IWxd8OVtzJtfVxB2n9_YNRfO5X8Bncl7aAmBlCiphk1w
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
