@@ -11,9 +11,13 @@ recognition.interimResults = false;
 recognition.continuous = false;
 
 mic.onclick = () => {
-  ring.style.transform = "scale(1.08)";
-  ring.style.boxShadow = "0 0 60px #00d4ff";
-  recognition.start();
+
+document.body.classList.add("listening");
+
+statusText.innerHTML="🎤 Listening...";
+
+recognition.start();
+
 };
 
 recognition.onresult = (event) => {
