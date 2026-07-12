@@ -1,6 +1,6 @@
 const mic = document.getElementById("mic");
 const ring = document.querySelector(".ring");
-
+const OPENAI_API_KEY = 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -31,7 +31,7 @@ recognition.onresult = (event) => {
 
   setTimeout(() => {
 
-    const reply = "Aapne kaha: " + text;
+    const reply = askAI(text);
 
     chat.innerHTML += `<div class="ai">${reply}</div>`;
 
@@ -76,4 +76,43 @@ function speak(message) {
   };
 
   speechSynthesis.speak(speech);
+}
+async function askAI(message) {
+
+  statusText.innerHTML = "🤖 ZOYA is thinking...";
+
+  try {
+
+    const response = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + OPENAI_API_KEY
+      },
+      body: JSON.stringify({
+        model: "gpt-5.5",
+        input: message
+      })
+    });
+
+    const data = await response.json();
+
+    const reply =
+      data.output?.[0]?.content?.[0]?.text ||
+      "Sorry, mujhe jawab nahi mila.";
+
+    chat.innerHTML += `<div class="ai">${reply}</div>`;
+
+    speak(reply);
+
+    statusText.innerHTML = "✅ Ready";
+
+    chat.scrollTop = chat.scrollHeight;
+
+  } catch (e) {
+
+    chat.innerHTML += `<div class="ai">Connection Error</div>`;
+    statusText.innerHTML = "❌ Error";
+
+  }
 }
