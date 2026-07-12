@@ -17,7 +17,9 @@ document.body.classList.add("listening");
 statusText.innerHTML="🎤 Listening...";
 
 recognition.start();
+document.body.classList.remove("listening");
 
+ring.style.filter="drop-shadow(0 0 15px #6a5cff)";
 };
 recognition.onresult=(event)=>{
 
