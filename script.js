@@ -96,3 +96,52 @@ function speak(message) {
   speechSynthesis.speak(speech);
 
 }
+async function askAI(message) {
+
+  try {
+
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + GEMINI_API_KEY,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text:
+                    "Tumhara naam ZOYA hai. Tum ek friendly AI assistant ho. Hamesha Hindi ya Hinglish me short aur helpful jawab do.\n\nUser: " +
+                    message
+                }
+              ]
+            }
+          ]
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    const reply =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Sorry, mujhe koi jawab nahi mila.";
+
+    chat.innerHTML += `<div class="ai">${reply}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+
+    speak(reply);
+
+  } catch (error) {
+
+    console.error(error);
+
+    chat.innerHTML += `<div class="ai">❌ Internet ya API Error.</div>`;
+
+    statusText.innerHTML = "❌ Error";
+
+  }
+
+}
