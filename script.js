@@ -31,7 +31,7 @@ recognition.onresult = (event) => {
 
   setTimeout(() => {
 
-    const reply = askAI(text);
+    
 
     chat.innerHTML += `<div class="ai">${reply}</div>`;
 
@@ -43,7 +43,18 @@ recognition.onresult = (event) => {
 
   }, 700);
 
-};
+};async function askAI(message) {
+
+  statusText.innerHTML = "🤖 ZOYA is thinking...";
+
+  try {
+
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + OPENAI_API_KEY,
+      {
+        method: "POST",
+        headers: {
+         
 
 recognition.onend = () => {
   ring.style.transform = "scale(1)";
