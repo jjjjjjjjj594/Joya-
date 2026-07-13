@@ -28,7 +28,10 @@ mic.addEventListener("click", () => {
   statusText.innerHTML = "🎤 Listening...";
 
   ring.style.filter = "drop-shadow(0 0 60px #00d4ff)";
-
+console.log("Mic button clicked");recognition.onerror = (event) => {
+  alert("Speech Error: " + event.error);
+  console.log(event.error);
+};
   recognition.start();
 
 });
