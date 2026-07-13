@@ -128,7 +128,8 @@ async function askAI(message) {
 const data = await response.json();
 console.log(data);
 alert(JSON.stringify(data));
-    
+    console.log(data);
+alert(JSON.stringify(data));
     chat.innerHTML += `<div class="ai">${reply}</div>`;
     chat.scrollTop = chat.scrollHeight;
 
