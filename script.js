@@ -125,13 +125,10 @@ async function askAI(message) {
         })
       }
     );
-
-    const data = await response.json();
-
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Sorry, mujhe koi jawab nahi mila.";
-
+const data = await response.json();
+console.log(data);
+alert(JSON.stringify(data));
+    
     chat.innerHTML += `<div class="ai">${reply}</div>`;
     chat.scrollTop = chat.scrollHeight;
 
