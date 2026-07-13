@@ -4,7 +4,7 @@ const statusText = document.getElementById("status");
 const chat = document.getElementById("chat");
 
 // Google AI Studio API Key
-const GEMINI_API_KEY = "YAHAN_APNI_GEMINI_API_KEY_PASTE_KARO";
+const GEMINI_API_KEY = "AQ.Ab8RN6L5dntgKKF8tYEP33NFHKSolDtZJNaLNnr-n6xsmo7THg";
 
 // Speech Recognition
 const SpeechRecognition =
