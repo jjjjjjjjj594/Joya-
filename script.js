@@ -148,3 +148,10 @@ async function askAI(message) {
   }
 
 }
+recognition.onerror = (event) => {
+  alert("Speech Error: " + event.error);
+};
+
+window.onerror = function(message, source, line) {
+  alert("JS Error: " + message + " Line: " + line);
+};
