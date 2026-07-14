@@ -116,7 +116,7 @@ async function askAI(message) {
               parts: [
                 {
                   text:
-                    "Tumhara naam ZOYA hai. Tum ek friendly AI assistant ho. Hamesha Hindi ya Hinglish me short aur helpful jawab do.\n\nUser: " +
+                    "Tumhara naam ZOYA hai. Tum ek friendly AI assistant ho. Hamesha Hindi ya methi me short aur helpful jawab do.\n\nUser: " +
                     message
                 }
               ]
