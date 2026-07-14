@@ -3,8 +3,7 @@ const ring = document.querySelector(".ring");
 const statusText = document.getElementById("status");
 const chat = document.getElementById("chat");
 
-// Google AI Studio API Key
-const GEMINI_API_KEY = "AQ.Ab8RN6L5dntgKKF8tYEP33NFHKSolDtZJNaLNnr-n6xsmo7THg";
+// Google AI Studio AP";
 
 // Speech Recognition
 const SpeechRecognition =
